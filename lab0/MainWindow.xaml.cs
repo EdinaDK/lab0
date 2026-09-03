@@ -18,20 +18,16 @@ namespace lab0
     {
         Triangle tr;
         Rectangle rt;
+
+        Random rnd = new Random();
+
         int width;
         int height;
-        Random rnd = new Random();
 
         public MainWindow()
         {
             InitializeComponent();
          
-            tr = createTriangle();
-            DrawTriangle(tr);
-
-            rt = createRectangle();
-            DrawRectangle(rt);
-
         }
 
         public Triangle createTriangle()
@@ -92,6 +88,23 @@ namespace lab0
         {
             //Очистка Canvas от всех объектов
             Scene.Children.Clear();
+        }
+
+        private void createRect(object sender, RoutedEventArgs e)
+        {
+            rt = createRectangle();
+            DrawRectangle(rt);
+        }
+
+        private void createTr(object sender, RoutedEventArgs e)
+        {
+            tr = createTriangle();
+            DrawTriangle(tr);
+        }
+
+        private void Clear(object sender, RoutedEventArgs e)
+        {
+            ClearScene();
         }
     }
 }

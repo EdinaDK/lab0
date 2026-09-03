@@ -18,21 +18,41 @@ namespace lab0
     {
         Triangle tr;
         Rectangle rt;
+        int width;
+        int height;
         Random rnd = new Random();
 
         public MainWindow()
         {
             InitializeComponent();
+         
+            tr = createTriangle();
+            DrawTriangle(tr);
+
+            rt = createRectangle();
+            DrawRectangle(rt);
+
+        }
+
+        public Triangle createTriangle()
+        {
             //Создание треугольника со случайными координатами
             Point2D p1 = new Point2D(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
             Point2D p2 = new Point2D(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
             Point2D p3 = new Point2D(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
-            Point2D p4 = new Point2D(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
-            //tr = new Triangle(p1, p2, p3);
-            //DrawTriangle(tr);
-            rt = new Rectangle(p1, p2, p3, p4);
-            DrawRectangle(rt);
+            return new Triangle(p1, p2, p3);
 
+        }
+
+        public Rectangle createRectangle()
+        {
+            width = rnd.Next(0, (int)Scene.Width);
+            height = rnd.Next((int)Scene.Height);
+            Point2D p1 = new Point2D(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
+            Point2D p2 = new Point2D(p1.X+width, p1.Y);
+            Point2D p3 = new Point2D((p1.X+width), (p1.Y-height));
+            Point2D p4 = new Point2D((p1.X), (p1.Y-height));
+            return new Rectangle(p1, p2, p3, p4);
         }
 
         //функция в основном теле программы

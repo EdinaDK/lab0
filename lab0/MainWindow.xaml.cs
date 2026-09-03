@@ -17,6 +17,7 @@ namespace lab0
     public partial class MainWindow : Window
     {
         Triangle tr;
+        Rectangle rt;
         Random rnd = new Random();
 
         public MainWindow()
@@ -26,8 +27,11 @@ namespace lab0
             Point2D p1 = new Point2D(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
             Point2D p2 = new Point2D(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
             Point2D p3 = new Point2D(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
-            tr = new Triangle(p1, p2, p3);
+            Point2D p4 = new Point2D(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
+            //tr = new Triangle(p1, p2, p3);
             //DrawTriangle(tr);
+            rt = new Rectangle(p1, p2, p3, p4);
+            DrawRectangle(rt);
 
         }
 
@@ -54,6 +58,14 @@ namespace lab0
             DrawLine(tr.P1, tr.P2);
             DrawLine(tr.P2, tr.P3);
             DrawLine(tr.P3, tr.P1);
+        }
+        public void DrawRectangle(Rectangle rt)
+        {
+            //Отрисовка треугольника с помощью функции отрисовки линии
+            DrawLine(rt.P1, rt.P2);
+            DrawLine(rt.P2, rt.P3); 
+            DrawLine(rt.P3, rt.P4);
+            DrawLine(rt.P4, rt.P1);
         }
 
         public void ClearScene()

@@ -58,7 +58,7 @@ namespace lab0
         }
         public void DrawRectangle(Rectangle rt)
         {
-            //Отрисовка треугольника с помощью функции отрисовки линии
+             
             DrawLine(rt.P1, rt.P2);
             DrawLine(rt.P2, rt.P3); 
             DrawLine(rt.P3, rt.P4);
@@ -101,7 +101,6 @@ namespace lab0
         private void createCoordTr(object sender, RoutedEventArgs e)
         {
             coordTr.Show();
-
         }
 
         private void createCoordRect(object sender, RoutedEventArgs e)

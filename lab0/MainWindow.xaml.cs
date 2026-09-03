@@ -19,6 +19,7 @@ namespace lab0
         public MainWindow()
         {
             InitializeComponent();
+            //приветики
         }
     }
 }

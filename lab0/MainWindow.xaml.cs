@@ -19,7 +19,7 @@ namespace lab0
         public MainWindow()
         {
             InitializeComponent();
-            //приветики
+            //приветики (это первая ветка)
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Security.Cryptography.Xml;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -19,6 +20,7 @@ namespace lab0
         Triangle tr;
         Rectangle rt;
         CoordTr coordTr = new CoordTr();
+        CoordRect coordRect= new CoordRect();
         Random rnd = new Random();
 
         int width;
@@ -104,6 +106,8 @@ namespace lab0
 
         private void createCoordRect(object sender, RoutedEventArgs e)
         {
+            coordRect.Show();
+
 
         }
     }

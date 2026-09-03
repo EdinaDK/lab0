@@ -18,7 +18,7 @@ namespace lab0
     {
         Triangle tr;
         Rectangle rt;
-
+        CoordTr coordTr = new CoordTr();
         Random rnd = new Random();
 
         int width;
@@ -28,27 +28,6 @@ namespace lab0
         {
             InitializeComponent();
          
-        }
-
-        public Triangle createTriangle()
-        {
-            //Создание треугольника со случайными координатами
-            Point2D p1 = new Point2D(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
-            Point2D p2 = new Point2D(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
-            Point2D p3 = new Point2D(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
-            return new Triangle(p1, p2, p3);
-
-        }
-
-        public Rectangle createRectangle()
-        {
-            width = rnd.Next(0, (int)Scene.Width);
-            height = rnd.Next((int)Scene.Height);
-            Point2D p1 = new Point2D(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
-            Point2D p2 = new Point2D(p1.X+width, p1.Y);
-            Point2D p3 = new Point2D((p1.X+width), (p1.Y-height));
-            Point2D p4 = new Point2D((p1.X), (p1.Y-height));
-            return new Rectangle(p1, p2, p3, p4);
         }
 
         //функция в основном теле программы
@@ -92,19 +71,40 @@ namespace lab0
 
         private void createRect(object sender, RoutedEventArgs e)
         {
-            rt = createRectangle();
+            width = rnd.Next(0, (int)Scene.Width);
+            height = rnd.Next((int)Scene.Height);
+            Point2D p1 = new Point2D(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
+            Point2D p2 = new Point2D(p1.X + width, p1.Y);
+            Point2D p3 = new Point2D((p1.X + width), (p1.Y - height));
+            Point2D p4 = new Point2D((p1.X), (p1.Y - height));
+            rt = new Rectangle(p1, p2, p3, p4);
             DrawRectangle(rt);
         }
 
         private void createTr(object sender, RoutedEventArgs e)
         {
-            tr = createTriangle();
+            //Создание треугольника со случайными координатами
+            Point2D p1 = new Point2D(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
+            Point2D p2 = new Point2D(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
+            Point2D p3 = new Point2D(rnd.Next(0, (int)Scene.Width), rnd.Next(0, (int)Scene.Height));
+            tr = new Triangle(p1, p2, p3);
             DrawTriangle(tr);
         }
 
         private void Clear(object sender, RoutedEventArgs e)
         {
             ClearScene();
+        }
+
+        private void createCoordTr(object sender, RoutedEventArgs e)
+        {
+            coordTr.Show();
+
+        }
+
+        private void createCoordRect(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
